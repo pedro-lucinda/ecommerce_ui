@@ -1,9 +1,7 @@
 #### Table
-- [Ecommerce](#ecommerce)
-		- [1. REQUIREMENTS](#1-requirements)
-		- [2. TECHS](#2-techs)
-		- [3. ENVS](#3-envs)
-		- [4. STARTING](#4-starting)
+
+- [Ecommerce](#ecommerce) - [1. REQUIREMENTS](#1-requirements) - [2. TECHS](#2-techs) - [3. ENVS](#3-envs) - [4. STARTING](#4-starting)
+
 # Ecommerce
 
 ### 1. REQUIREMENTS
@@ -30,14 +28,11 @@
 
 ### 3. ENVS
 
-| Name | Value | Description |
-| ---- | ----- | ----------- |
-| API  | ...   | API URL     |
-|      |       |             |
-|      |       |             |
-|      |       |             |
-|      |       |             |
-|      |       |             |
+| Name                                 | Value | Description              |
+| ------------------------------------ | ----- | ------------------------ |
+| NEXT_PUBLIC_API_TOKEN                | ...   | Dato CMS API TOKEN       |
+| NEXT_PUBLIC_DATO_GRAPHQL_URL         | ...   | Dato Graphql URL         |
+| NEXT_PUBLIC_DATO_GRAPHQL_URL_PREVIEW | ...   | Dato Graphql Preview URL |
 
 ### 4. STARTING
 
@@ -46,7 +41,7 @@
 $ git clone https://github.com/pedro-lucinda
 
 # Access
-$ cd 
+$ cd
 
 # Install dependencies
 $ yarn install

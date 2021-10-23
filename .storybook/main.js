@@ -3,6 +3,5 @@ module.exports = {
 	addons: [
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
-		"@snek-at/storybook-addon-chakra-ui",
 	],
 };

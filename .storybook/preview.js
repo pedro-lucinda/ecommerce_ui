@@ -1,2 +1,2 @@
-import { theme } from "../src/styles/theme";
-export const parameters = { chakra: { theme: theme } };
+import Global from "../src/styles/global";
+export const parameters = { chakra: { theme: Global } };

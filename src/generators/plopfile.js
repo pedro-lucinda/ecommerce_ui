@@ -16,9 +16,15 @@ module.exports = (plop) => {
 			},
 			{
 				type: "add",
+				path: "../components/atoms/{{dashCase name}}/style.ts",
+				templateFile: "component/style.ts.hbs",
+			},
+			{
+				type: "add",
 				path: "../components/atoms/{{dashCase name}}/stories/{{dashCase name}}.stories.tsx",
 				templateFile: "component/stories/stories.tsx.hbs",
 			},
+
 		],
 	});
 };
