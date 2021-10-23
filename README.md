@@ -1,31 +1,32 @@
 #### Table
-- [Nextjs_template - { Project Name }](#nextjs_template----project-name-)
+- [Ecommerce](#ecommerce)
 		- [1. REQUIREMENTS](#1-requirements)
 		- [2. TECHS](#2-techs)
 		- [3. ENVS](#3-envs)
 		- [4. STARTING](#4-starting)
-
-# Nextjs_template - { Project Name }
+# Ecommerce
 
 ### 1. REQUIREMENTS
 
-- [ ] Req 1
-- [ ] Req 2
+- [ ] Should be mobile first.
+- [ ] Search and filters should update the products in the page.
+- [ ] Click add to cart should update sub total amount in top right button correctly.
+- [ ] Click add to cart should show the notification “Added to cart successfully for 2 seconds.
+- [ ] Click add to cart should update the button itself for 2 seconds as in the design.
+- [ ] Shouldn't be any action on sub total button.
+- [ ] Pagination should work properly.
 
 ### 2. TECHS
 
 - NextJS
 - Prettier
 - Eslint
-- Chakra UI
-- Yup
-- React Hook Forms
+- Styled Components
 - React Icons
 - StoryBook
-- Date fns
-- Axios
 - Husky
 - Yarn
+- Dato CMS
 
 ### 3. ENVS
 
@@ -42,10 +43,10 @@
 
 ```bash
 # Clone this project
-$ git clone https://github.com/pedro-lucinda/nextjs_template
+$ git clone https://github.com/pedro-lucinda
 
 # Access
-$ cd {name of project}
+$ cd 
 
 # Install dependencies
 $ yarn install
