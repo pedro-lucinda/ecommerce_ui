@@ -7,13 +7,9 @@ export default {
   title: '{{pascalCase name}}'
 }
 
-export const Default = () => (
-  <>
-    <{{pascalCase name}}>{{pascalCase name}}</{{pascalCase name}}>
-  </>
-)
-
 const Template: Story< {{pascalCase name}}Props > = (args) => < {{pascalCase name}} {...args} />;
+export const Default = Template.bind({});
+Default.args = {};
 export const Primary = Template.bind({});
 Primary.args = {};
 
