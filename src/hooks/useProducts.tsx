@@ -7,6 +7,10 @@ export function useProducts(): IProductContext {
 		ProductContext,
 		(state) => state.products
 	);
+	const numberOfPages = useContextSelector(
+		ProductContext,
+		(state) => state.numberOfPages
+	);
 	const onGetAllProducts = useContextSelector(
 		ProductContext,
 		(state) => state.onGetAllProducts
@@ -26,6 +30,7 @@ export function useProducts(): IProductContext {
 
 	return {
 		products,
+		numberOfPages,
 		onFilterByTitle,
 		onFilterByRating,
 		onGetAllProducts,

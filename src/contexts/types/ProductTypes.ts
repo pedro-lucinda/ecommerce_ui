@@ -12,6 +12,7 @@ export type IProduct = {
 
 export type IProductContext = {
 	products: IProduct[] | null;
+	numberOfPages: number;
 	onGetAllProducts(): Promise<void>;
 	onFilterByRating(rating: number): IProduct[] | null;
 	onFilterByPrice(

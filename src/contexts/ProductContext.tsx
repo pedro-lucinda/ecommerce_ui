@@ -15,25 +15,36 @@ export const ProductContextProvider = ({
 	children,
 }: IProductContextProvider) => {
 	const [products, setProducts] = useState<IProduct[] | null>(null);
+	const [numberOfPages, setNumberOfPages] = useState<number>(0);
 
-	const onGetAllProducts = useCallback(async (): Promise<void> => {
-		try {
-			const response = await request({
-				query: ALL_PRODUCTS_QUERY,
-				variables: { limit: 10 },
-				preview: {},
-			});
-			const formatted = response.allProducts.map(
-				(product: Omit<IProduct, "quantityOnCart">) => ({
-					...product,
-					quantityOnCart: 0,
-				})
-			);
-			setProducts(formatted);
-		} catch (err) {
-			console.log(err);
-		}
-	}, []);
+	const onGetAllProducts = useCallback(
+		async (page: number = 1): Promise<void> => {
+			const limit = 6;
+			const skip = page === 1 ? 0 : limit * page;
+
+			try {
+				const response = await request({
+					query: ALL_PRODUCTS_QUERY,
+					variables: { skip, limit },
+					preview: {},
+				});
+				// eslint-disable-next-line no-underscore-dangle
+				const totalOfResults = response?._allProductsMeta?.count / limit;
+				setNumberOfPages(totalOfResults);
+
+				const formatted = response.allProducts.map(
+					(product: Omit<IProduct, "quantityOnCart">) => ({
+						...product,
+						quantityOnCart: 0,
+					})
+				);
+				setProducts(formatted);
+			} catch (err) {
+				console.log(err);
+			}
+		},
+		[]
+	);
 
 	const onFilterByRating = useCallback(
 		(rating: number): IProduct[] | null => {
@@ -93,6 +104,7 @@ export const ProductContextProvider = ({
 		<ProductContext.Provider
 			value={{
 				products,
+				numberOfPages,
 				onGetAllProducts,
 				onFilterByRating,
 				onFilterByPrice,
