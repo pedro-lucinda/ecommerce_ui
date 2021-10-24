@@ -9,7 +9,10 @@
 			"@helpers/*": ["src/helpers/*"],
 			"@hooks/*": ["src/hooks/*"],
 			"@views/*": ["src/views/*"],
-			"@public/*": ["public/*"]
+			"@public/*": ["public/*"],
+			"@lib/*": ["src/lib/*"],
+			"@queries/*": ["src/queries/*"],
+			"@type/*": ["src/context/types/*"],
 		},
 		"allowJs": true,
 		"allowUnreachableCode": false,
