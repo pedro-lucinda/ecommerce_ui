@@ -10,7 +10,7 @@ export default createGlobalStyle`
 			text-rendering: optimizeLegibility;
 		}
 		html {
-			font-size: 10px;
+
 		}
 		body {
 			background: white;
@@ -20,4 +20,5 @@ export default createGlobalStyle`
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 		}
+
 `;

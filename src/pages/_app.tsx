@@ -7,14 +7,14 @@ import Global from "../styles/global";
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
-			<Global />
-			<AppLayout>
-				<ProductContextProvider>
-					<CartContextProvider>
+			<ProductContextProvider>
+				<CartContextProvider>
+					<Global />
+					<AppLayout>
 						<Component {...pageProps} />
-					</CartContextProvider>
-				</ProductContextProvider>
-			</AppLayout>
+					</AppLayout>
+				</CartContextProvider>
+			</ProductContextProvider>
 		</>
 	);
 }
