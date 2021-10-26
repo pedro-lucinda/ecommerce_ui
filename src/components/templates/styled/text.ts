@@ -26,8 +26,11 @@ export const mdTextRegular = styled(mdText)`
 	font-weight: 600;
 `;
 
-export const PlaceholderText = styled(smTextRegular)`
-	color: ${gray700};
+export const PlaceholderText = `
+	color: gray700,
+	font-size: 14px;
+	font-weight: 500;
+
 `;
 
 export const RattingText = styled(smTextRegular);
