@@ -6,13 +6,12 @@
 
 ### 1. REQUIREMENTS
 
-- [ ] Should be mobile first.
-- [ ] Search and filters should update the products in the page.
-- [ ] Click add to cart should update sub total amount in top right button correctly.
-- [ ] Click add to cart should show the notification “Added to cart successfully for 2 seconds.
-- [ ] Click add to cart should update the button itself for 2 seconds as in the design.
-- [ ] Shouldn't be any action on sub total button.
-- [ ] Pagination should work properly.
+- [x] Should be mobile first.
+- [x] Search and filters should update the products in the page.
+- [x] Click add to cart should update sub total amount in top right button correctly.
+- [x] Click add to cart should update the button itself for 2 seconds as in the design.
+- [x] Shouldn't be any action on sub total button.
+- [x] Pagination should work properly.
 
 ### 2. TECHS
 
@@ -46,8 +45,10 @@ $ cd
 # Install dependencies
 $ yarn install
 
-# Run Husky
-$ yarn prepare
+
+# Add Environment Variables on the root of the project
+
+$ touch .env.local
 
 # Run Project
 $ yarn dev

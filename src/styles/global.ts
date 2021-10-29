@@ -9,9 +9,7 @@ export default createGlobalStyle`
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		html {
 
-		}
 		body {
 			background: white;
 			color: black;

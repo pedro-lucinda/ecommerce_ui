@@ -15,25 +15,29 @@ export function useProducts(): IProductContext {
 		ProductContext,
 		(state) => state.onGetAllProducts
 	);
-	const onFilterByRating = useContextSelector(
-		ProductContext,
-		(state) => state.onFilterByRating
-	);
-	const onFilterByPrice = useContextSelector(
-		ProductContext,
-		(state) => state.onFilterByPrice
-	);
+
 	const onFilterByTitle = useContextSelector(
 		ProductContext,
 		(state) => state.onFilterByTitle
 	);
+	const onPaginationChange = useContextSelector(
+		ProductContext,
+		(state) => state.onPaginationChange
+	);
+	const currentPage = useContextSelector(
+		ProductContext,
+		(state) => state.currentPage
+	);
+
+	const onSort = useContextSelector(ProductContext, (state) => state.onSort);
 
 	return {
 		products,
+		currentPage,
+		onPaginationChange,
 		numberOfPages,
 		onFilterByTitle,
-		onFilterByRating,
+		onSort,
 		onGetAllProducts,
-		onFilterByPrice,
 	};
 }

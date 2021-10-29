@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
+import { toast } from "react-toastify";
 
 import { createContext } from "use-context-selector";
 import { ICartContext, ICartContextProvider } from "./types/CartTypes";
@@ -10,11 +11,24 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 	const [cart, setCart] = useState<IProduct[] | null>(null);
 	const [totalItems, setTotalItems] = useState<number>(0);
 	const [totalPrice, setTotalPrice] = useState<number>(0);
+	const [showConfirmation, setShowConfirmation] = useState<string | null>(null);
+
+	useEffect(() => {
+		if (showConfirmation) {
+			toast.success("Added to cart successfully", {
+				position: toast.POSITION.TOP_CENTER,
+			});
+
+			setTimeout(() => {
+				setShowConfirmation(null);
+			}, 2000);
+		}
+	}, [showConfirmation]);
 
 	const getProductOnCart = (productId: string): IProduct | null => {
-		const productOnCart = cart?.filter((p: IProduct) => p.id === productId);
-		if (productOnCart && productOnCart?.length > 0) {
-			return productOnCart[0];
+		const productOnCart = cart?.find((p: IProduct) => p.id === productId);
+		if (productOnCart) {
+			return productOnCart;
 		}
 		return null;
 	};
@@ -59,11 +73,14 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 		}
 	};
 
-	const canAddToCart = (product: IProduct): boolean => {
+	const canAddToCart = (product: IProduct, quantity: number): boolean => {
+		if (product.quantity < 1) {
+			return false;
+		}
 		const productOnCart = getProductOnCart(product.id);
 		if (productOnCart) {
 			const hasQuantityAvailable =
-				product.quantity > productOnCart.quantityOnCart;
+				productOnCart.quantity >= productOnCart.quantityOnCart + quantity;
 			if (hasQuantityAvailable) {
 				return true;
 			}
@@ -80,24 +97,48 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 	};
 
 	const onAddToCart = useCallback(
-		(product: IProduct): void => {
-			if (!cart) {
-				setCart([{ ...product, quantityOnCart: product.quantityOnCart + 1 }]);
-				return updateTotals("ADD", 1, product.price);
+		(product: IProduct, quantity: number): void => {
+			if (!cart && product.quantity > 0) {
+				setCart([
+					{ ...product, quantityOnCart: product.quantityOnCart + quantity },
+				]);
+				setShowConfirmation(product.id);
+				return updateTotals("ADD", quantity, product.price);
 			}
-			const canAdd = canAddToCart(product);
+
+			const canAdd = canAddToCart(product, quantity);
+
 			if (canAdd) {
-				const updatedCart = cart.map((prod: IProduct) => {
-					if (prod.id === product.id) {
-						return { ...prod, quantityOnCart: prod.quantityOnCart + 1 };
+				const productOnCart = getProductOnCart(product.id);
+				if (!productOnCart) {
+					const updatedProduct = {
+						...product,
+						quantityOnCart: product?.quantityOnCart + quantity,
+					};
+					setCart([...(cart as IProduct[]), updatedProduct]);
+					setShowConfirmation(product.id);
+					return updateTotals("ADD", quantity, product.price);
+				}
+
+				const updatedCart = cart?.map((prod: IProduct) => {
+					if (product.id === prod.id) {
+						return {
+							...prod,
+							quantityOnCart: prod?.quantityOnCart + quantity,
+						};
 					}
 					return prod;
 				});
-				setCart(updatedCart);
-				return updateTotals("ADD", 1, product.price);
+				setCart([...(updatedCart as IProduct[])]);
+				setShowConfirmation(product.id);
+				return updateTotals("ADD", quantity, product.price);
 			}
 
-			if (!canAdd) alert("No stock avalible");
+			if (!canAdd) {
+				toast.error("No stock available", {
+					position: toast.POSITION.TOP_CENTER,
+				});
+			}
 		},
 		[cart]
 	);
@@ -121,6 +162,7 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 						return prod;
 					});
 					setCart(updatedCart);
+					setShowConfirmation(product.id);
 					return updateTotals("REMOVE", 1, product.price);
 				}
 				const removedFromCart = cart.filter(
@@ -131,6 +173,7 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 					return setCart([...removedFromCart]);
 				}
 				setCart(null);
+				setShowConfirmation(product.id);
 				return updateTotals("REMOVE", 1, product.price);
 			}
 		},
@@ -144,6 +187,7 @@ export const CartContextProvider = ({ children }: ICartContextProvider) => {
 				totalPrice,
 				totalItems,
 				onAddToCart,
+				showConfirmation,
 				onRemoveProductFromCart,
 			}}
 		>

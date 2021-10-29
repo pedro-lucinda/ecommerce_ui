@@ -5,7 +5,7 @@ import {
 } from "@components/templates/styled/svg";
 import { PlaceholderText } from "@components/templates/styled/text";
 
-import { gray400, borderRadius } from "@styles/variables";
+import { gray400, borderRadius, mobileMaxWidth } from "@styles/variables";
 
 import styled from "styled-components";
 
@@ -17,6 +17,7 @@ export const SearchBoxContainer = styled(FlexRowSpaceBetween)`
 	max-width: 438px;
 	width: 100%;
 	border-radius: ${borderRadius};
+	/* margin-right: auto;	 */
 	margin-left: auto;
 
 	svg:first-child {
@@ -42,9 +43,9 @@ export const SearchBoxContainer = styled(FlexRowSpaceBetween)`
 		}
 	}
 
-	@media screen and (max-width: 909px) {
+	@media screen and (max-width: ${mobileMaxWidth}) {
+		margin-right: 0;
 		margin-left: 0;
-
 		height: 40px;
 	}
 `;

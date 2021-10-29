@@ -1,19 +1,18 @@
 import { useState } from "react";
 
 import { SearchBox } from "@components/atoms/SearchBox";
-import { Select } from "@components/atoms/Select";
+import { Select } from "@components/atoms/forms/Select";
 import { Button } from "@components/atoms/Button";
 import { useCart } from "@hooks/useCart";
-import { priceFormatting } from "@helpers/currencyFormatting";
+import { priceFormattingEUR } from "@helpers/currencyFormatting";
 import { useMediaQuery } from "@mui/material";
 import { BiMenu } from "react-icons/bi";
+import { mobileMaxWidth } from "@styles/variables";
 import { NavbarContainer } from "./style";
-
-type NavbarProps = {};
 
 const Navbar = () => {
 	const { totalItems, totalPrice } = useCart();
-	const isWeb = useMediaQuery("(min-width:906px)");
+	const isWeb = useMediaQuery(`(min-width: ${mobileMaxWidth})`);
 	const [selectedLanguage, setSelectedLanguage] = useState({
 		value: "EN",
 		label: "English",
@@ -30,7 +29,7 @@ const Navbar = () => {
 						onChange={setSelectedLanguage}
 					/>
 					<Button numberOfItems={totalItems}>
-						Sub total: {priceFormatting(String(totalPrice))}
+						Sub total: {priceFormattingEUR(String(totalPrice))}
 					</Button>
 				</section>
 			)}
@@ -40,4 +39,3 @@ const Navbar = () => {
 };
 
 export { Navbar };
-export type { NavbarProps };

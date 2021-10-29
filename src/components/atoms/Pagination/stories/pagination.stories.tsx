@@ -1,12 +1,12 @@
 import { Story, Meta } from "@storybook/react";
-import { Navbar } from "..";
+import { Pagination } from "..";
 
 export default {
-	component: Navbar,
-	title: "Navbar",
+	component: Pagination,
+	title: "Pagination",
 };
 
-const Template: Story = (args) => <Navbar {...args} />;
+const Template: Story = (args) => <Pagination {...args} />;
 export const Default = Template.bind({});
 Default.args = {};
 export const Primary = Template.bind({});

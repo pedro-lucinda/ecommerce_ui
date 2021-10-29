@@ -4,4 +4,7 @@ export const productQueryType = `
     quantity
     rating
     title
+		 image {
+      url
+    }
 	`;

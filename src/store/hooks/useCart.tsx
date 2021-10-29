@@ -24,6 +24,10 @@ export function useCart(): ICartContext {
 		CartContext,
 		(state) => state.onRemoveProductFromCart
 	);
+	const showConfirmation = useContextSelector(
+		CartContext,
+		(state) => state.showConfirmation
+	);
 
 	return {
 		cart,
@@ -31,5 +35,6 @@ export function useCart(): ICartContext {
 		totalPrice,
 		onAddToCart,
 		onRemoveProductFromCart,
+		showConfirmation,
 	};
 }

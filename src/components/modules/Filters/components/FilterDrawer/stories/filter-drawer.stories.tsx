@@ -1,12 +1,12 @@
 import { Story, Meta } from "@storybook/react";
-import { Navbar } from "..";
+import { FilterDrawer, FilterDrawerProps } from "..";
 
 export default {
-	component: Navbar,
-	title: "Navbar",
+	component: FilterDrawer,
+	title: "FilterDrawer",
 };
 
-const Template: Story = (args) => <Navbar {...args} />;
+const Template: Story<FilterDrawerProps> = (args) => <FilterDrawer {...args} />;
 export const Default = Template.bind({});
 Default.args = {};
 export const Primary = Template.bind({});

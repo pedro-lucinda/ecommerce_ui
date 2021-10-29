@@ -1,13 +1,15 @@
+
 import { Story, Meta } from "@storybook/react";
-import { Navbar } from "..";
+import { ProductCard, ProductCardProps  } from '..'
 
 export default {
-	component: Navbar,
-	title: "Navbar",
-};
+		component: ProductCard,
+  title: 'ProductCard'
+}
 
-const Template: Story = (args) => <Navbar {...args} />;
+const Template: Story< ProductCardProps > = (args) => < ProductCard {...args} />;
 export const Default = Template.bind({});
 Default.args = {};
 export const Primary = Template.bind({});
 Primary.args = {};
+

@@ -4,8 +4,9 @@ export default function Custom404() {
 	return (
 		<div>
 			<Head>
-				<title>Error </title>
+				<title>Error</title>
 			</Head>
+			<p>Page not found</p>
 		</div>
 	);
 }

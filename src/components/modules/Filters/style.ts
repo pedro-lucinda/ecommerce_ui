@@ -17,16 +17,20 @@ export const FiltersContainer = styled(FlexColumn)`
 		.MuiTextField-root {
 			margin-right: 16px;
 			width: 112px;
+			.MuiFormLabel-root {
+				font-size: 12px;
+			}
 		}
+
 		.MuiOutlinedInput-input {
-			height: 20px;
+			height: 25px;
 			width: 112px;
-			padding: 12px;
+			font-size: 14px;
+			padding: 10px;
 		}
 
 		section {
 			margin: 0 auto;
-			/* margin-right: -150px; */
 		}
 
 		button {
@@ -44,10 +48,17 @@ export const FiltersContainer = styled(FlexColumn)`
 		align-items: center;
 		justify-content: center;
 
+		.MuiTextField-root {
+			margin-right: 16px;
+			width: 112px;
+			.MuiFormLabel-root {
+				font-size: 12px;
+			}
+		}
+
 		.MuiOutlinedInput-input {
-			height: 20px;
+			height: 10px;
 			width: 206px;
-			padding: 12px;
 			font-size: 14px;
 		}
 	}

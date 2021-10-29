@@ -15,21 +15,33 @@ type SelectProps = {
 	value: any;
 	onChange: any;
 	label?: string;
+	disabled?: boolean;
 };
 
-const Select = ({ options, value, onChange, label }: SelectProps) => (
+const Select = ({
+	options,
+	value,
+	onChange,
+	label,
+	disabled = false,
+}: SelectProps) => (
 	<FormControl>
-		{label && <InputLabel id="select-label">{label}</InputLabel>}
+		{label && (
+			<InputLabel id="select-label" style={{ fontSize: "12px" }}>
+				{label}
+			</InputLabel>
+		)}
 		<MUISelect
+			disabled={disabled}
 			labelId="select"
 			id="select"
-			value={value.value}
-			label={value.label}
+			value={value?.value}
+			label={value?.label}
 			onChange={(e) => onChange(e.target.value)}
-			style={{ fontSize: "14px" }}
+			style={{ fontSize: "12px" }}
 		>
 			{options?.map((option: IOption) => (
-				<MenuItem key={option.value} value={option.value}>
+				<MenuItem key={option?.label} value={option?.value}>
 					{option.label}
 				</MenuItem>
 			))}
