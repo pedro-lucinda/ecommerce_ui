@@ -1,5 +1,5 @@
+import { mobileMaxWidth } from "@styles/variables";
 import styled from "styled-components";
-import { gray700 } from "@styles/variables";
 
 export const smText = styled.p`
 	font-size: 14px;
@@ -26,14 +26,32 @@ export const mdTextRegular = styled(mdText)`
 	font-weight: 600;
 `;
 
-export const PlaceholderText = styled(smTextRegular)`
-	color: ${gray700};
+export const PlaceholderText = `
+	color: gray700,
+	font-size: 14px;
+	font-weight: 500;
+
 `;
 
-export const RattingText = styled(smTextRegular);
-export const FilterText = styled(smTextRegular);
+export const RattingText = styled(smTextRegular)``;
+export const FilterText = styled(smTextRegular)``;
 
-export const TitleText = styled(mdTextRegular);
-export const cartButtonText = styled(mdTextRegular);
+export const TitleText = styled.p`
+	height: 80px;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 150%;
 
-export const PriceText = styled(lgTextBold);
+	@media screen and (max-width: ${mobileMaxWidth}) {
+		font-size: 14px;
+	}
+`;
+export const cartButtonText = styled(mdTextRegular)`
+	font-weight: 400;
+`;
+
+export const PriceText = styled(lgTextBold)`
+	@media screen and (max-width: ${mobileMaxWidth}) {
+		font-size: 16px;
+	}
+`;

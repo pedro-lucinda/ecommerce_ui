@@ -5,6 +5,7 @@ export const mobilePadding = "24xp 16px 16px";
 // media
 export const webMaxWidth = "1440px";
 export const mobileMinWidth = "375px";
+export const mobileMaxWidth = "906px";
 
 // border
 export const borderRadius = "4px";
@@ -25,6 +26,8 @@ export const blue300 = "#9DC2FF";
 export const blue500 = "#2264D1";
 
 export const blueOcean = "#1671C0";
+
+export const productCardBorder = "#BCBDBC";
 
 export const filterOverlay = "rgba(0, 0, 0, 0.35)";
 

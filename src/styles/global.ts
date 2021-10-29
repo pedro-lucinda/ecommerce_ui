@@ -9,9 +9,7 @@ export default createGlobalStyle`
 			-webkit-font-smoothing: antialiased;
 			text-rendering: optimizeLegibility;
 		}
-		html {
-			font-size: 10px;
-		}
+
 		body {
 			background: white;
 			color: black;
@@ -20,4 +18,5 @@ export default createGlobalStyle`
 			-webkit-font-smoothing: antialiased;
 			-moz-osx-font-smoothing: grayscale;
 		}
+
 `;
