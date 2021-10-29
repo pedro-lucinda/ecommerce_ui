@@ -3,6 +3,7 @@
 - [Ecommerce](#ecommerce) - [1. REQUIREMENTS](#1-requirements) - [2. TECHS](#2-techs) - [3. ENVS](#3-envs) - [4. STARTING](#4-starting)
 
 # Ecommerce
+https://ecommerce-ui-pi.vercel.app/
 
 ### 1. REQUIREMENTS
 
@@ -37,17 +38,15 @@
 
 ```bash
 # Clone this project
-$ git clone https://github.com/pedro-lucinda
+$ git clone https://github.com/pedro-lucinda/ecommerce_ui
 
 # Access
-$ cd
+$ cd ecommerce_ui
 
 # Install dependencies
 $ yarn install
 
-
 # Add Environment Variables on the root of the project
-
 $ touch .env.local
 
 # Run Project
